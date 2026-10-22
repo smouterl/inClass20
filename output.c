@@ -6,7 +6,7 @@ Description:
 #include <stdio.h>
 #include "struct.h"
 
-int file_write()
+int file_write(array)
 {
     FILE *out = fopen("myDoggo.pgm", "w")
 
@@ -16,7 +16,7 @@ int file_write()
         exit(1);
     }
 
-    fwrite(arraySize, sizeof(unsigned char), imagesize, out);
+    fwrite(sizeof(array), sizeof(unsigned char), 515 * 388, out);
     fclose(out);
     return 0;
 }
