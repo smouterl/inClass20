@@ -1,7 +1,8 @@
 /**
 File: output.c
 Author: Blake Ackland
-Description: 
+Description: Takes an array of unsigned chars and creates new file
+             to write in values
 */
 #include <stdio.h>
 #include "struct.h"
