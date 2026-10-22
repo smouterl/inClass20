@@ -4,7 +4,7 @@
 #include <stdint.h>
 
 /* Apply a 5x5 boxcar filter; the two-pixel border is left unchanged in dst. */
-void boxcar_filter_2d_float(int height, int width,
+void boxcar_filter(int height, int width,
                            const uint8_t src[height][width],
                            uint8_t dst[height][width]);
 

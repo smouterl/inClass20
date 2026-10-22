@@ -7,7 +7,7 @@
 #include "LPF.h"
 #include <math.h> // Required for the roundf() function
 
-void boxcar_filter_2d_float(int height, int width, const uint8_t src[height][width], uint8_t dst[height][width]) {
+void boxcar_filter(int height, int width, const uint8_t src[height][width], uint8_t dst[height][width]) {
     
     for (int y = 2; y < height - 2; y++) {
         for (int x = 2; x < width - 2; x++) {
