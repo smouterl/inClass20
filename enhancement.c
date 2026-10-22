@@ -5,18 +5,18 @@
 * Date: 10/15/26
 ***********************************************/
 
-void enhance(unsigned char LPFArray[256][256], unsigned char originalArray[256][256], unsigned char enhancedArray[256][256]) {
-    for (int i = 0; i < 256; i++) {
-        for (int j = 0; j < 256; j++) {
+void enhance(int height, int width, const uint8_t src[height][width], uint8_t dst[height][width], const uint8_t LPFArray[height][width]) {
+    for (int i = 0; i < height; i++) {
+        for (int j = 0; j < width; j++) {
 
-            int value = 4 * originalArray[i][j] - 3 * LPFArray[i][j];
+            int value = 4 * src[i][j] - 3 * LPFArray[i][j];
 
             if (value < 0) {
                 value = 0;
             } else if (value > 255) {
                 value = 255;
             }
-            enhancedArray[i][j] = value;
+            dst[i][j] = value;
         }
     }
 }

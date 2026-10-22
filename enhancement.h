@@ -5,4 +5,4 @@
 * Date: 10/15/26
 ***********************************************/
 
-void enhance(unsigned char LPFArray[256][256], unsigned char originalArray[256][256], unsigned char enhancedArray[256][256]);
+void enhance(int height, int width, const uint8_t src[height][width], uint8_t dst[height][width], const uint8_t LPFArray[height][width]);
