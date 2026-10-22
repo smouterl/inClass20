@@ -4,7 +4,7 @@
 * Author: Logan Smouter
 * Date: 10/22/2026
 ***********************************************/
-#include <stdint.h>
+#include "LPF.h"
 #include <math.h> // Required for the roundf() function
 
 void boxcar_filter_2d_float(int height, int width, const uint8_t src[height][width], uint8_t dst[height][width]) {
