@@ -9,7 +9,7 @@ Description: Takes an array of unsigned chars and creates new file
 #include "struct.h"
 
 
-int file_write(unsigned char *array, char *file_name, FILE *out)
+int file_write(unsigned char *array, char *file_name, FILE *out, int width, int height)
 {
     *out = fopen(file_name, "w");
 
@@ -19,7 +19,7 @@ int file_write(unsigned char *array, char *file_name, FILE *out)
         exit(1);
     }
 
-    fwrite(sizeof(array), sizeof(unsigned char), 515 * 388, out);
+    fwrite(sizeof(array), sizeof(unsigned char), width * height, out);
     fclose(out);
     return 0;
 }

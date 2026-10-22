@@ -58,7 +58,7 @@ void main(void){
     enhance(image.height, image.width, image.image, enhancedArray, LPFArray);
     
     FILE *LPFout = fopen("LPF.pgm", "w");
-    file_write(LPFArray, "LPF.pgm", LPFout);
+    file_write(LPFArray, "LPF.pgm", LPFout, image.width, image.height);
     fclose(LPFout);
 
     FILE *enhancedOut = fopen("enhanced.pgm", "w");
