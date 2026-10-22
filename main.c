@@ -16,6 +16,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "struct.h"
 #include "enhancement.h"
 #include "LPF.h"
@@ -31,12 +32,12 @@ Image_data get_header(char *file_name, FILE *fp){
     fgets(line, 500, fp);
     image.creator = line;
     fgets(line, 500, fp);
-    image.image_width = atoi(strtok(line, " "));
-    image.image_height = atoi(strtok(NULL, " "));
+    image.width = atoi(strtok(line, " "));
+    image.height = atoi(strtok(NULL, " "));
     fgets(line, 500, fp);
     image.pixel_depth = atoi(line);
 
-    fread(image.image, sizeof(unsigned char), image.image_width * image.image_height, fp);
+    fread(image.image, sizeof(unsigned char), image.width * image.height, fp);
 
 
     return image;
@@ -53,7 +54,7 @@ void main(void){
 
     unsigned char *LPFArray[image.height][image.width];
     unsigned char *enhancedArray[image.height][image.width];
-    boxcar_filter_2d_float(image.height, image.width, image.image, LPFArray);
+    boxcar_filter(image.height, image.width, image.image, LPFArray);
     enhance(image.height, image.width, image.image, enhancedArray, LPFArray);
     
     FILE *LPFout = fopen("LPF.pgm", "w");

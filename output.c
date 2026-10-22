@@ -8,11 +8,8 @@ Description: Takes an array of unsigned chars and creates new file
 #include "output.h"
 #include "struct.h"
 
-<<<<<<< HEAD
+
 int file_write(unsigned char *array, char *file_name, FILE *out)
-=======
-int file_write(unsigned char *array)
->>>>>>> 0ed6dcd (Add output header)
 {
     *out = fopen(file_name, "w");
 
