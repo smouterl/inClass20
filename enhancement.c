@@ -5,6 +5,8 @@
 * Date: 10/15/26
 ***********************************************/
 
+#include <stdint.h>
+
 void enhance(int height, int width, const uint8_t src[height][width], uint8_t dst[height][width], const uint8_t LPFArray[height][width]) {
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < width; j++) {

@@ -7,9 +7,9 @@ Description: Takes an array of unsigned chars and creates new file
 #include <stdio.h>
 #include "struct.h"
 
-int file_write(array)
+int file_write(unsigned char *array, char *file_name, FILE *out)
 {
-    FILE *out = fopen("myTank.pgm", "w")
+    *out = fopen(file_name, "w");
 
     if (out == NULL)
     {
