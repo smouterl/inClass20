@@ -9,7 +9,7 @@ Description: Takes an array of unsigned chars and creates new file
 
 int file_write(array)
 {
-    FILE *out = fopen("myDoggo.pgm", "w")
+    FILE *out = fopen("myTank.pgm", "w")
 
     if (out == NULL)
     {
