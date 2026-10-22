@@ -10,17 +10,7 @@
 
 int main(void)
 {
-    FILE *input_file, *output_file;
-    char inPutarray[256][256];
-    input_file = fopen("doggo.pgm", "r");
- 
-    for(int i = 0; i < 256; i++)
-    {
-        for(int j = 0; j < 256; j++)
-        {
-            fscanf(input_file, "%c", &inPutarray[i][j]);
-        }
-    }
+
 
 
     
