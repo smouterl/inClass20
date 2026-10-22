@@ -7,12 +7,12 @@
 #include "LPF.h"
 #include <math.h> // Required for the roundf() function
 
-void boxcar_filter(int height, int width, const uint8_t src[height][width], uint8_t dst[height][width]) {
+void boxcar_filter(int height, int width, const unsigned char src[height][width], unsigned char dst[height][width]) {
     
     for (int y = 2; y < height - 2; y++) {
         for (int x = 2; x < width - 2; x++) {
             
-            uint32_t sum = 0;
+            unsigned int sum = 0;
 
             for (int ky = -2; ky <= 2; ky++) {
                 for (int kx = -2; kx <= 2; kx++) {
@@ -21,7 +21,7 @@ void boxcar_filter(int height, int width, const uint8_t src[height][width], uint
             }
 
             //(float)sum converts the integer to a float
-            dst[y][x] = (uint8_t)roundf((float)sum / 25.0f);
+            dst[y][x] = (unsigned char)roundf((float)sum / 25.0f);
         }
     }
 }
