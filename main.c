@@ -45,7 +45,7 @@ Image_data get_header(char *file_name, FILE *fp){
 }
 
 
-void main(void){
+int main(void){
     FILE *fp = fopen("tank.pgm", "r");
         if(!fp){
         fputs("ERROR opening file\n", stderr);
@@ -53,8 +53,24 @@ void main(void){
     }
     Image_data image = get_header("tank.pgm", fp);
 
-    unsigned char *LPFArray = (unsigned char *)malloc(image.width * image.height * sizeof(unsigned char));
-    unsigned char *enhancedArray = (unsigned char *)malloc(image.width * image.height * sizeof(unsigned char));
+
+    // Allocate array of char pointers
+    unsigned char **LPFArray = (unsigned char **)malloc(image.height * sizeof(unsigned char *));
+
+    // Allocate memory for each row
+    for (int i = 0; i < image.height; i++) {
+        LPFArray[i] = (unsigned char *)malloc(image.width * sizeof(unsigned char));
+    }
+
+    
+    // Allocate array of char pointers
+    unsigned char **enhancedArray = (unsigned char **)malloc(image.height * sizeof(unsigned char *));
+
+    // Allocate memory for each row
+    for (int i = 0; i < image.height; i++) {
+        enhancedArray[i] = (unsigned char *)malloc(image.width * sizeof(unsigned char));
+    }
+    
     boxcar_filter(image.height, image.width, image.image, LPFArray);
     enhance(image.height, image.width, image.image, enhancedArray, LPFArray);
     
@@ -66,4 +82,5 @@ void main(void){
     file_write(enhancedArray, "enhanced.pgm", enhancedOut, image.width, image.height);
     fclose(enhancedOut);
     fclose(fp);
+    return 0;
 }
