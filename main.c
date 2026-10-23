@@ -93,8 +93,8 @@ int main(void){
     file_write(enhancedArray, "enhanced.pgm", enhancedOut, image.width, image.height);
     fclose(enhancedOut);
     fclose(fp);
-    return 0;
     free(image.image);
     free(LPFArray);
     free(enhancedArray);
+    return 0;
 }
