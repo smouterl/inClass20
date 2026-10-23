@@ -7,7 +7,7 @@
 
 #include <stdint.h>
 
-void enhance(int height, int width, const uint8_t src[height][width], uint8_t dst[height][width], const uint8_t LPFArray[height][width]) {
+void enhance(int height, int width, const uint8_t *src, uint8_t *dst, const uint8_t *LPFArray) {
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < width; j++) {
 

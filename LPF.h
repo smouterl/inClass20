@@ -3,7 +3,7 @@
 
 /* Apply a 5x5 boxcar filter; the two-pixel border is left unchanged in dst. */
 void boxcar_filter(int height, int width,
-                           const unsigned char src[height][width],
-                           unsigned char dst[height][width]);
+                           const unsigned char *src,
+                           unsigned char *dst);
 
 #endif

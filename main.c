@@ -37,6 +37,7 @@ Image_data get_header(char *file_name, FILE *fp){
     fgets(line, 500, fp);
     image.pixel_depth = atoi(line);
 
+    image.image = (unsigned char *)malloc(image.width * image.height * sizeof(unsigned char));
     fread(image.image, sizeof(unsigned char), image.width * image.height, fp);
 
 
@@ -62,7 +63,7 @@ void main(void){
     fclose(LPFout);
 
     FILE *enhancedOut = fopen("enhanced.pgm", "w");
-    file_write(enhancedArray, "enhanced.pgm", enhancedOut);
+    file_write(enhancedArray, "enhanced.pgm", enhancedOut, image.width, image.height);
     fclose(enhancedOut);
     fclose(fp);
 }

@@ -6,4 +6,4 @@
 ***********************************************/
 #include <stdint.h>
 
-void enhance(int height, int width, const uint8_t src[height][width], uint8_t dst[height][width], const uint8_t LPFArray[height][width]);
+void enhance(int height, int width, const uint8_t *src, uint8_t *dst, const uint8_t *LPFArray);
