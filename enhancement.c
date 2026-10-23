@@ -12,7 +12,7 @@ void enhance(int height, int width, const char **src, char **dst, const char **L
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < width; j++) {
 
-            int value = 4 * atoi(*src[i * width + j]) - 3 * atoi(*LPFArray[i * width + j]);
+            int value = 4 * (*src[i * width + j]) - 3 * (*LPFArray[i * width + j]);
 
             if (value < 0) {
                 value = 0;
