@@ -93,6 +93,11 @@ int main(void){
     file_write(enhancedArray, "enhanced.pgm", enhancedOut, image.width, image.height);
     fclose(enhancedOut);
     fclose(fp);
+    for (int i = 0; i < image.height; i++) {
+        free(image.image[i]);
+        free(LPFArray[i]);
+        free(enhancedArray[i]);
+    }
     free(image.image);
     free(LPFArray);
     free(enhancedArray);
