@@ -8,7 +8,7 @@ typedef struct {
     unsigned int width;
     unsigned int height;
     unsigned int pixel_depth;
-    unsigned char *image;
+    unsigned char **image;
 } Image_data;
 
 #endif

@@ -11,7 +11,7 @@ Description: Takes an array of unsigned chars and creates new file
 #include "struct.h"
 
 
-int file_write(unsigned char *array, char *file_name, FILE *out, int width, int height)
+int file_write(unsigned char **array, char *file_name, FILE *out, int width, int height)
 {
     out = fopen(file_name, "w");
 

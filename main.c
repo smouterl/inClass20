@@ -37,7 +37,14 @@ Image_data get_header(char *file_name, FILE *fp){
     fgets(line, 500, fp);
     image.pixel_depth = atoi(line);
 
-    image.image = (unsigned char *)malloc(image.width * image.height * sizeof(unsigned char));
+    // Allocate array of char pointers
+    image.image = (unsigned char **)malloc(image.height * sizeof(unsigned char *));
+
+    // Allocate memory for each row
+    for (int i = 0; i < image.height; i++) {
+        image.image[i] = (unsigned char *)malloc(image.width * sizeof(unsigned char));
+    }
+
     fread(image.image, sizeof(unsigned char), image.width * image.height, fp);
 
 

@@ -1,6 +1,6 @@
 CC=gcc
 CFLAGS=-c -Wall
-LDFLAGS=
+LDFLAGS=-lm
 SOURCES= main.c LPF.c output.c enhancement.c
 OBJECTS=$(SOURCES:.c=.o)
 EXECUTABLE=main.exe
