@@ -53,8 +53,8 @@ void main(void){
     }
     Image_data image = get_header("tank.pgm", fp);
 
-    unsigned char *LPFArray[image.height][image.width];
-    unsigned char *enhancedArray[image.height][image.width];
+    unsigned char *LPFArray = (unsigned char *)malloc(image.width * image.height * sizeof(unsigned char));
+    unsigned char *enhancedArray = (unsigned char *)malloc(image.width * image.height * sizeof(unsigned char));
     boxcar_filter(image.height, image.width, image.image, LPFArray);
     enhance(image.height, image.width, image.image, enhancedArray, LPFArray);
     
