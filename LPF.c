@@ -24,7 +24,7 @@ void boxcar_filter(int height, int width, unsigned char **src, unsigned char **d
 
             for (int ky = -2; ky <= 2; ky++) {
                 for (int kx = -2; kx <= 2; kx++) {
-                    sum += atoi(src[(y + ky) * width + (x + kx)]);
+                    sum += src[y + ky][x + kx];
                 }
             }
 

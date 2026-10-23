@@ -45,7 +45,9 @@ Image_data get_header(char *file_name, FILE *fp){
         image.image[i] = (unsigned char *)malloc(image.width * sizeof(unsigned char));
     }
 
-    fread(image.image, sizeof(unsigned char), image.width * image.height, fp);
+    for (int i = 0; i < image.height; i++) {
+        fread(image.image[i], sizeof(unsigned char), image.width, fp);
+    }
 
 
     return image;
