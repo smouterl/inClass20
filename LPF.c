@@ -8,7 +8,13 @@
 #include <math.h> // Required for the roundf() function
 
 void boxcar_filter(int height, int width, unsigned char *src, unsigned char *dst) {
-    
+    /* Preserve the border */
+    for (int y = 0; y < height; y++) {
+        for (int x = 0; x < width; x++) {
+            dst[y * width + x] = src[y * width + x];
+        }
+    }
+
     for (int y = 2; y < height - 2; y++) {
         for (int x = 2; x < width - 2; x++) {
             
