@@ -22,7 +22,7 @@ int file_write(unsigned char *array, char *file_name, FILE *out, int width, int 
     }
 
 
-    fwrite(sizeof(array), sizeof(unsigned char), width * height, out);
+    fwrite(array, sizeof(unsigned char), width * height, out);
     fclose(out);
     return 0;
 }

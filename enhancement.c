@@ -6,6 +6,7 @@
 ***********************************************/
 
 #include <stdint.h>
+#include <stdlib.h>
 
 void enhance(int height, int width, const char *src, char *dst, const char *LPFArray) {
     for (int i = 0; i < height; i++) {
